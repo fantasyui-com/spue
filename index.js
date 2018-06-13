@@ -22,7 +22,13 @@ fs.createReadStream(input)
             const alpha = parseFloat(((100.0 * alph / 255)/100).toPrecision(1));
 
             //console.log(`y: rgba(${red},${green}, ${blue}, ${alpha});`);
-            response.push([red, green, blue, alpha])
+            if(
+              (red != undefined) &&
+              (green != undefined) &&
+              (blue != undefined)
+            ){
+               response.push([red, green, blue, alpha]);
+             }
           }
         }else{
           let y = this.height / 2;
@@ -35,8 +41,13 @@ fs.createReadStream(input)
             const alpha = parseFloat(((100.0 * alph / 255)/100).toPrecision(1));
 
             //console.log(`x: rgba(${red},${green}, ${blue}, ${alpha});`);
-            response.push([red, green, blue, alpha])
-          }
+            if(
+              (red != undefined) &&
+              (green != undefined) &&
+              (blue != undefined)
+            ){
+               response.push([red, green, blue, alpha]);
+             }          }
         } // if
 
         if(cb){
