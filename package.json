@@ -1,6 +1,6 @@
 {
   "name": "spue",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "JSON friendly Color Analysis for Images. [CLI]",
   "main": "index.js",
   "bin": {
