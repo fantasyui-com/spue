@@ -4,15 +4,13 @@ const PNG = require('pngjs').PNG;
 module.exports = function({input},cb){
 
 fs.createReadStream(input)
-    .pipe(new PNG({
-        filterType: 4
-    }))
+    .pipe(new PNG({ filterType: 4 }))
     .on('parsed', function() {
       const response = [];
       //console.log(this.height , this.width)
         if(this.height >= this.width){
           // Read Y
-          for (var y = 0; y < this.height; y = y + this.height/10) {
+          for (var y = 0; y < this.height; y = y +  1) {
             const x = this.width / 2;
             var idx = (this.width * y + x) << 2;
             const red = this.data[idx];
@@ -30,9 +28,9 @@ fs.createReadStream(input)
                response.push([red, green, blue, alpha]);
              }
           }
-        }else{
+        } else {
           let y = this.height / 2;
-          for (var x = 0; x < this.width; x = x + this.width/10) {
+          for (var x = 0; x < this.width; x = x + 1) {
             var idx = (this.width * y + x) << 2;
             const red = this.data[idx];
             const green = this.data[idx+1];
@@ -47,7 +45,8 @@ fs.createReadStream(input)
               (blue != undefined)
             ){
                response.push([red, green, blue, alpha]);
-             }          }
+             }
+           }
         } // if
 
         if(cb){
