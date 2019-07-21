@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/fantasyui-com/spue#readme",
   "dependencies": {
-    "chickpea": "^1.7.0",
+    "chickpea": "^1.8.0",
     "pngjs": "^3.3.3"
   }
 }
